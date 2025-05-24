@@ -16,8 +16,12 @@ class License(Base):
     #     DateTime,
     #     nullable=False
     # )
+    # expiration_date: Mapped[datetime] = mapped_column(
+    #     DateTime,
+    #     nullable=False,
+    #     server_default = func.now() + timedelta(days=30)
+    # )
     expiration_date: Mapped[datetime] = mapped_column(
         DateTime,
-        nullable=False,
-        server_default = func.now() + timedelta(days=30)
+        nullable=True
     )

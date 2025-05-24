@@ -12,6 +12,6 @@ class License(Base):
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     email: Mapped[str] = mapped_column(String, nullable=False)
     key: Mapped[str] = mapped_column(String, nullable=False)
-    # expiration_date: Mapped[datetime] = mapped_column(
-    #     DateTime, nullable=True
-    # )
+    expiration_date: Mapped[datetime] = mapped_column(
+        DateTime, nullable=False
+    )

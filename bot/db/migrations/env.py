@@ -4,10 +4,11 @@ from logging.config import fileConfig
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
-from bot.config_reader import get_config, DbConfig
-from bot.db import Base
 
 from alembic import context
+
+from bot.db import Base    # WITHOUT .base !!!
+from bot.config_reader import get_config, DbConfig
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -29,7 +30,6 @@ config.set_main_option(
     'sqlalchemy.url',
     str(db_config.dsn),
 )
-
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
